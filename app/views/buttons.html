@@ -1,0 +1,27 @@
+<ion-view title="Arduino Call!">
+    <ion-nav-buttons side="left">
+        <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+    </ion-nav-buttons>
+    <ion-content class="has-header">
+        <!--<ion-toggle ng-repeat="item in settingsList"
+                    ng-model="item.checked"
+                    ng-checked="item.checked"
+                    ng-change="pushNotificationChange(item)">
+            {{ item.resource_name }}
+        </ion-toggle>-->
+        <ion-toggle ng-repeat="item in settingsList | filter:'dig_'"
+                    ng-model="item.checked"
+                    ng-change="pushDigitalChange(item)">
+            {{ item.resource_name }}
+        </ion-toggle>
+        <ion-item ng-repeat="item in settingsList | filter:'pwm_' ">
+            {{ item.resource_name }}
+            <i class="button icon-left ion-chevron-left button-clear button-dark" ng-click="less(item)">Menos</i>
+            {{ item.state }}
+            <i class="button icon-right ion-chevron-right button-clear button-dark" ng-click="more(item)">Mas</i>
+        </ion-item>
+        <ion-item ng-repeat="item in settingsList | filter:'an_' ">
+            {{ item.resource_name }} state: {{ item.state }}
+        </ion-item>
+    </ion-content>
+</ion-view>
