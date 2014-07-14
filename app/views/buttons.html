@@ -11,6 +11,7 @@
         </ion-toggle>-->
         <ion-toggle ng-repeat="item in settingsList | filter:'dig_'"
                     ng-model="item.checked"
+                    ng-checked="item.checked"
                     ng-change="pushDigitalChange(item)">
             {{ item.resource_name }}
         </ion-toggle>
@@ -23,5 +24,6 @@
         <ion-item ng-repeat="item in settingsList | filter:'an_' ">
             {{ item.resource_name }} state: {{ item.state }}
         </ion-item>
+
     </ion-content>
 </ion-view>

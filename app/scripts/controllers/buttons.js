@@ -11,6 +11,13 @@ var app = angular.module('AndroidArduino');
 
 app.controller('ButtonsCtrl', function ($scope, $ionicPopup, ArduinoService) {
 
+    $scope.priceSlider = {
+        min: 100,
+        max: 180,
+        ceil: 500,
+        floor: 0
+    };
+
     ArduinoService.get({}, function (success) {
         console.log(success);
         $scope.settingsList = success;
@@ -25,13 +32,13 @@ app.controller('ButtonsCtrl', function ($scope, $ionicPopup, ArduinoService) {
      ];*/
 
     $scope.pushDigitalChange = function (item) {
-        console.log(item)
         var copy = {};
         copy.resource_name = item.resource_name;
-        if (item.checked == false) {
+        if (item.checked !== true) {
             item.state = 1;
             copy.state = 1;
         } else {
+            console.log('off');
             item.state = 0;
             copy.state = 0;
         }

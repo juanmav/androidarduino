@@ -189,7 +189,7 @@ module.exports = function (grunt) {
         files: [{
           expand: true,
           cwd: 'www',
-          src: ['*.html', 'templates/**/*.html'],
+          src: ['*.html', 'templates/**/*.html', 'views/**/*.html'],
           dest: 'www'
         }]
       }
@@ -206,6 +206,7 @@ module.exports = function (grunt) {
           src: [
             'images/**/*.{png,jpg,jpeg,gif,webp,svg}',
             '*.html',
+            'templates/**/*.html',
             'views/**/*.html',
             'fonts/*',
             'res/**'

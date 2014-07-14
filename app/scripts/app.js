@@ -6,7 +6,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('AndroidArduino', ['ionic', 'ngResource', 'AndroidArduino.controllers'])
+angular.module('AndroidArduino', ['ionic', 'ngResource'])
 
     .run(function ($ionicPlatform) {
         $ionicPlatform.ready(function () {
@@ -22,56 +22,37 @@ angular.module('AndroidArduino', ['ionic', 'ngResource', 'AndroidArduino.control
             .state('app', {
                 url: '/app',
                 abstract: true,
-                templateUrl: '../views/menu.html',
-                controller: 'AppCtrl'
+                templateUrl: 'views/menu.html',
+                controller: ''
             })
 
-            .state('app.search', {
-                url: '/search',
+            .state('app.about', {
+                url: '/about',
                 views: {
                     'menuContent': {
-                        templateUrl: '../views/search.html'
+                        templateUrl: 'views/about.html'
                     }
                 }
             })
-
-            .state('app.browse', {
-                url: '/browse',
+            .state('app.contact', {
+                url: '/contact',
                 views: {
                     'menuContent': {
-                        templateUrl: '../views/browse.html'
-                    }
-                }
-            })
-            .state('app.playlists', {
-                url: '/playlists',
-                views: {
-                    'menuContent': {
-                        templateUrl: '../views/playlists.html',
-                        controller: 'PlaylistsCtrl'
+                        templateUrl: '../views/contact.html'
                     }
                 }
             })
 
-            .state('app.single', {
-                url: '/playlists/:playlistId',
-                views: {
-                    'menuContent': {
-                        templateUrl: '../views/playlist.html',
-                        controller: 'PlaylistCtrl'
-                    }
-                }
-            })
             .state('app.arduino', {
                 url: '/arduino',
                 views: {
                     'menuContent': {
-                        templateUrl: '../views/buttons.html',
+                        templateUrl: 'views/buttons.html',
                         controller: 'ButtonsCtrl'
                     }
                 }
             });
         // if none of the above states are matched, use this as the fallback
-        $urlRouterProvider.otherwise('/app/playlists');
+        $urlRouterProvider.otherwise('/app/about');
     });
 
