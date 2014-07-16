@@ -11,25 +11,25 @@ var app = angular.module('AndroidArduino');
 
 app.controller('ButtonsCtrl', function ($scope, $ionicPopup, ArduinoService) {
 
-    $scope.priceSlider = {
-        min: 100,
-        max: 180,
-        ceil: 500,
-        floor: 0
-    };
+    $scope.value = 0;
 
     ArduinoService.get({}, function (success) {
         console.log(success);
         $scope.settingsList = success;
     }, function (error) {
-        console.log(error);
+        $scope.showAlert();
     });
 
-    /*$scope.settingsList = [
-     { id: 3, text: "Wireless", checked: true },
-     { id: 3, text: "GPS", checked: false },
-     { id: 3, text: "Bluetooth", checked: false }
-     ];*/
+    $scope.pushPwmChange = function(slider, item){
+        console.log('adadasdas');
+        console.log(item.resource_name);
+        console.log(slider.value);
+        item.state = slider.value;
+        ArduinoService.update(item, function (success) {
+        }, function (error) {
+            $scope.showAlert();
+        });
+    }
 
     $scope.pushDigitalChange = function (item) {
         var copy = {};
@@ -57,25 +57,4 @@ app.controller('ButtonsCtrl', function ($scope, $ionicPopup, ArduinoService) {
             template: 'No se pudo actualizar el valor!'
         });
     };
-
-    $scope.less = function (item) {
-        if (item.state > 0) {
-            item.state--;
-        }
-        ArduinoService.update(item, function (success) {
-        }, function (error) {
-            $scope.showAlert();
-        });
-    }
-
-    $scope.more = function (item) {
-        if (item.state < 255) {
-            item.state++;
-        }
-        ArduinoService.update(item, function (success) {
-
-        }, function (error) {
-            $scope.showAlert();
-        });
-    }
 });
