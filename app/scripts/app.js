@@ -38,7 +38,8 @@ angular.module('AndroidArduino', ['ionic', 'ngResource', 'ngDelay'])
                 url: '/contact',
                 views: {
                     'menuContent': {
-                        templateUrl: '../views/contact.html'
+                        templateUrl: 'views/contact.html',
+                        controller: 'ContactCtrl'
                     }
                 }
             })

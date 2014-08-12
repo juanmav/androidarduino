@@ -2,14 +2,10 @@
     <ion-nav-buttons side="left">
         <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
     </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+        <button class="button button-icon icon ion-refresh" ng-click="refresh(this)"></button>
+    </ion-nav-buttons>
     <ion-content class="has-header">
-
-        <!--<ion-toggle ng-repeat="item in settingsList"
-                    ng-model="item.checked"
-                    ng-checked="item.checked"
-                    ng-change="pushNotificationChange(item)">
-            {{ item.resource_name }}
-        </ion-toggle>-->
         <ion-toggle ng-repeat="item in settingsList | filter:'dig_'"
                     ng-model="item.checked"
                     ng-checked="item.checked"
@@ -17,19 +13,11 @@
             {{ item.resource_name }}
         </ion-toggle>
         <ion-item ng-repeat="item in settingsList | filter:'pwm_' ">
-
-            <!--<i class="button icon-left ion-chevron-left button-clear button-dark" ng-click="less(item)">Menos</i>
-            {{ item.state }}
-            <i class="button icon-right ion-chevron-right button-clear button-dark" ng-click="more(item)">Mas</i>
-
-            <input ng-change="change(this, item)" ng-model="value"  type="text" id="{{item.resource_name}}" slider options="options" />
-            {{value}}
-            -->
             <div class="list">
                 <div class="item range range-positive">
                     <i>{{ item.resource_name }}</i>
                     <i class="icon ion-ios7-sunny-outline"></i>
-                    <input ng-delay="1000" ng-change="pushPwmChange(this, item)" class="pull-right" id="{{item.resource_name}}" type="range" min="0" max="255" step="5" ng-model="value"/>
+                    <input ng-delay="1000" ng-change="pushPwmChange(item)" class="pull-right" id="{{item.resource_name}}" type="range" min="0" max="255" step="5" ng-model="item.state"/>
                     <i class="icon ion-ios7-sunny"></i>
                 </div>
             </div>

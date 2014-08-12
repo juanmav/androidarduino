@@ -2,7 +2,7 @@
 
 /**
  * @ngdoc directive
- * @name androidArduinoApp.directive:ngdelay
+ * @name ngdelay
  * @description
  * # ngdelay
  * Base on http://stackoverflow.com/questions/21121460/angular-directive-encapsulating-a-delay-for-ng-change
@@ -17,7 +17,6 @@ app.directive('ngDelay', ['$timeout', function ($timeout) {
             var expression = attributes['ngChange'];
             if (!expression)
                 return;
-
             attributes['ngChange'] = '$$delay.execute()';
             return {
                 pre: function (scope, element, attributes) {
