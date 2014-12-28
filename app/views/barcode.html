@@ -1,0 +1,22 @@
+<ion-view title="About">
+    <ion-nav-buttons side="left">
+        <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+    </ion-nav-buttons>
+    <ion-content class="has-header">
+        <label class="item item-input">
+            <span class="input-label">Paquete</span>
+            <input type="text" ng-model="data.code" ng-disabled="true">
+        </label>
+        <label class="item item-input">
+            <span class="input-label">Latitude</span>
+            <input type="text" ng-model="data.lat" ng-disabled="true">
+        </label>
+        <label class="item item-input">
+            <span class="input-label">Longitude</span>
+            <input type="text" ng-model="data.lon" ng-disabled="true">
+        </label>
+        <button ng-show="!enviar" class="button button-assertive button-full" ng-click="read()"> Leer</button>
+        <button ng-show="enviar" class="button button-balanced button-full" ng-click="send()"> Enviar</button>
+
+    </ion-content>
+</ion-view>

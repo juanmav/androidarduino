@@ -10,7 +10,6 @@
 var app = angular.module('AndroidArduino');
 
 app.controller('ButtonsCtrl', function ($scope, $ionicPopup, ArduinoService, $ionicLoading, $filter) {
-
     $scope.retreive = function() {
         $ionicLoading.show({ template: 'Loading...'});
         ArduinoService.get({}, function (success) {
@@ -28,11 +27,9 @@ app.controller('ButtonsCtrl', function ($scope, $ionicPopup, ArduinoService, $io
         });
     };
     $scope.retreive();
-
     $scope.refresh = function (button){
         $scope.retreive();
     }
-
     $scope.pushPwmChange = function(item){
         console.log(item.resource_name);
         console.log(item.state);
@@ -46,7 +43,6 @@ app.controller('ButtonsCtrl', function ($scope, $ionicPopup, ArduinoService, $io
             $scope.showAlert();
         });
     }
-
     $scope.pushDigitalChange = function (item) {
         var copy = {};
         copy.resource_name = item.resource_name;

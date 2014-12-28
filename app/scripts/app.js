@@ -6,7 +6,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('AndroidArduino', ['ionic', 'ngResource', 'ngDelay'])
+angular.module('AndroidArduino', ['ionic', 'ngResource', 'ngDelay', 'firebase'])
 
     .run(function ($ionicPlatform) {
         $ionicPlatform.ready(function () {
@@ -50,6 +50,36 @@ angular.module('AndroidArduino', ['ionic', 'ngResource', 'ngDelay'])
                     'menuContent': {
                         templateUrl: 'views/buttons.html',
                         controller: 'ButtonsCtrl'
+                    }
+                }
+            })
+
+            .state('app.location', {
+                url: '/location',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'views/location.html',
+                        controller: 'LocationCtrl'
+                    }
+                }
+            })
+
+            .state('app.bluetooth', {
+                url: '/bluetooth',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'views/bluetooth.html',
+                        controller: 'BluetoothCtrl'
+                    }
+                }
+            })
+
+            .state('app.barcode', {
+                url: '/barcode',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'views/barcode.html',
+                        controller: 'BarcodeCtrl'
                     }
                 }
             });

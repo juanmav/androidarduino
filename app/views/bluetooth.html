@@ -1,0 +1,21 @@
+<ion-view title="About">
+    <ion-nav-buttons side="left">
+        <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+    </ion-nav-buttons>
+    <ion-content class="has-header">
+        <ion-toggle ng-model="led" ng-checked="led" ng-change="toggle(led)">
+            Led
+        </ion-toggle>
+        <ion-list>
+            <ion-item ng-repeat="device in devices">
+                {{device.name}}
+                <ion-option-button class="button-positive" ng-click="connect(device)">
+                    Connect
+                </ion-option-button>
+                <ion-option-button class="button-info" ng-click="disconnect(device)">
+                    Disconnect
+                </ion-option-button>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>
